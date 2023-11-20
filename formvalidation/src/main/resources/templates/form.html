@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>server side form validation</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col-md-6 offset-md-3">
+				<form th:action="@{/process}" method="post" th:object="${loginData}">
+					<h1 class="text-center">Register here!!</h1>
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">User Name</label>
+				    
+				    <input type="test" name="userName" class="form-control" th:value="${loginData.userName}" id="exampleInputEmail1" aria-describedby="emailHelp">
+				    <p th:each="e:${#fields.errors('userName')}" th:text="${e}"></p>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">E-mail</label>
+				    <input type="email" name="email" class="form-control" th:value="${loginData.email}" id="exampleInputPassword1">
+				    <p th:each="e:${#fields.errors('email')}" th:text="${e}"></p>
+				  </div>
+				  
+				  <div class="form-group form-check">
+				    <input type="checkbox" name="agreed" class="form-check-input" id="exampleCheck1">
+				    <label class="form-check-label" for="exampleCheck1">Agree terms and conditions</label>
+				    <p th:each="a:${#fields.errors('agreed')}" th:text="${a}"></p>
+				  </div>
+				  
+				  <button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html> 
