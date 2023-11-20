@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Conditional handling in thinmeleaf</h1>
+<h1> User is <span th:style="${isActive} ?  'color:green' : 'color:red' "
+  th:text="${isActive} ? 'ACTIVE' : 'NOT ACTIVE'"></span></h1>
+<h1 th:if="${gender} == 'male'">Male</h1>
+<h1 th:if="${gender} == 'female'">Female</h1>
+<h1>User is : <span th:text="${gender} ? 'Male' : 'Female'"></span></h1>
+<div th:switch="${#lists.size(mylist)}">
+	<h1 th:case="'0'">List Contains zero element</h1>
+	<h2 th:case="'1'">List Contains one element</h2>
+	<h1 th:case="*">List Contians more than one element</h1>
+</div>
+</body>
+</html>

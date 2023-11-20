@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Iterator Example </h1>
+<h1>Going to traverse element in loop</h1>
+<h1 th:text="${names}"></h1>
+<ul>
+	<li th:each="n : ${names}">
+		<span th:text="${n}"></span>
+	</li>
+</ul>
+</body>
+</html>
